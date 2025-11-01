@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gestión de Tareas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Iniciar Sesión</h1>
+            
+            <form class="auth-form" action="tareas.html" id="loginForm">
+                <div class="auth-form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+                </div>
+                
+                <div class="auth-form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
+                </div>
+                
+                <button type="submit" class="auth-button" id="btnIniciarSesion">Ingresar</button>
+            </form>
+            
+            <div class="auth-link">
+                ¿No tienes cuenta? <a href="registro.html">Regístrate</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal noMostrar" id="modal-general">
+      <div class="modal-content modal-informativo">
+        <button class="btn-close" id="btnCerrarInfo">&times;</button>
+
+        <!-- Icono según el tipo de mensaje -->
+        <div class="modal-icono" id="modalIcono">
+          <span id="simbolo">ℹ️</span>
+        </div>
+
+        <h2 id="modalTitulo">Título del Modal</h2>
+
+        <div class="modal-mensaje">
+          <p id="modalMensaje">Este es el mensaje que se mostrará al usuario</p>
+        </div>
+
+        <div class="modal-buttons">
+          <button class="btn btn-primary" id="btnAceptarInfo">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/auth.js"></script>
+</body>
+</html>

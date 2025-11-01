@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:,"> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css?v=2">
+  </head>
+  <body>
+    <div class="contenido" id="tablastareas">
+      <div class="table" id="tablaLunes">
+        <div class="cabecera">
+          <div class="celda-cabecera">Lunes</div>
+          <button class="btn-agregar" id="btnAbrirLunes">+</button>
+        </div>
+        <div class="cuerpo">
+            
+        <!-- 
+          <div class="celda-cuerpo">
+                <div class="contenido-celda">asdas adas</div>
+            </div>
+
+            <div class="content-btn">
+                <button class="btn-ver">ver</button>
+            </div>
+          -->
+            
+        </div>
+      </div>
+      
+        <div class="table" id="tablaMartes">
+        <div class="cabecera">
+          <div class="celda-cabecera">Martes</div>
+          <button class="btn-agregar" id="btnAbrirMartes">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+
+      <div class="table" id="tablaMiercoles">
+        <div class="cabecera">
+          <div class="celda-cabecera">Miercoles</div>
+          <button class="btn-agregar" id="btnAbrirMiercoles">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+
+      <div class="table" id="tablaJueves">
+        <div class="cabecera">
+          <div class="celda-cabecera">Jueves</div>
+          <button class="btn-agregar" id="btnAbrirJueves">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+
+      <div class="table" id="tablaViernes">
+        <div class="cabecera">
+          <div class="celda-cabecera">Viernes</div>
+          <button class="btn-agregar" id="btnAbrirViernes">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+
+      <div class="table" id="tablaSabado">
+        <div class="cabecera">
+          <div class="celda-cabecera">Sabado</div>
+          <button class="btn-agregar" id="btnAbrirSabado">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+
+      <div class="table" id="tablaDomingo">
+        <div class="cabecera">
+          <div class="celda-cabecera">Domingo</div>
+          <button class="btn-agregar" id="btnAbrirDomingo">+</button>
+        </div>
+        <div class="cuerpo"></div>
+      </div>
+      
+
+    </div>
+
+    <div class="modal noMostrar" id="modal">
+      <div class="modal-content">
+        <button class="btn-close" id="btnCerrar">&times;</button>
+        <h2>Agregar Nueva Tarea</h2>
+
+        <div class="form-group">
+          <label for="taskName">Nombre de la tarea</label>
+          <input type="text" id="taskName" />
+          <span id="span-limite">0</span>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Materia</label>
+          <select id="subject">
+            <option value="">Selecciona una materia</option>
+            <option value="cloud">Cloud Computing</option>
+            <option value="java">Programación Java</option>
+            <option value="web-services">Web Services</option>
+            <option value="web-avanzado">Desarrollo Web Avanzado</option>
+            <option value="seguridad">
+              Seguridad de las Nuevas Tecnologías
+            </option>
+            <option value="ambiente">Ambiente Sostenible</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Lo que toca hacer</label>
+          <textarea id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Fecha de entrega</label>
+          <input type="date" id="dueDate" />
+        </div>
+
+        <div class="modal-buttons">
+          <button class="btn btn-secondary" id="btnCancelar_modal">
+            Cancelar
+          </button>
+          <button class="btn btn-primary" id="btnGuardar_modal">
+            Guardar Tarea
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal noMostrar" id="modal-tarea">
+      <div class="modal-content">
+        <button class="btn-close" id="btnCerrar">&times;</button>
+        <h2>Informacion de la tarea</h2>
+
+        <div class="form-group">
+          <label for="description">Lo que toca hacer</label>
+          <textarea id="description"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Fecha de entrega</label>
+          <input type="date" id="dueDate" />
+        </div>
+
+        <div class="modal-buttons">
+          <button class="btn btn-primary">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Informativo Universal -->
+    <div class="modal noMostrar" id="modal-general">
+      <div class="modal-content modal-informativo">
+        <button class="btn-close" id="btnCerrarInfo">&times;</button>
+
+        <!-- Icono según el tipo de mensaje -->
+        <div class="modal-icono" id="modalIcono">
+          <span id="simbolo">ℹ️</span>
+        </div>
+
+        <h2 id="modalTitulo">Título del Modal</h2>
+
+        <div class="modal-mensaje">
+          <p id="modalMensaje">Este es el mensaje que se mostrará al usuario</p>
+        </div>
+
+        <div class="modal-buttons">
+          <button class="btn btn-primary" id="btnAceptarInfo">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

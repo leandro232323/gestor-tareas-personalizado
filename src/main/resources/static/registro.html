@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Gestión de Tareas</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Crear Cuenta</h1>
+
+            <form class="auth-form" id="registroForm">
+                <div class="auth-form-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" id="cedula" name="cedula" placeholder="Ingresa tu cédula">
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" placeholder="Crea una contraseña">
+                        <button type="button" class="password-toggle" data-target="password">👁️</button>
+                    </div>
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="confirmarPassword">Confirmar Contraseña</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmarPassword" name="confirmarPassword"
+                            placeholder="Repite tu contraseña">
+                        <button type="button" class="password-toggle" data-target="confirmarPassword">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-button">Registrarse</button>
+            </form>
+
+            <div class="auth-link">
+                ¿Ya tienes cuenta? <a href="index.html">Inicia Sesión</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal noMostrar" id="modal-general">
+        <div class="modal-content modal-informativo">
+            <button class="btn-close" id="btnCerrarInfo">&times;</button>
+
+            <!-- Icono según el tipo de mensaje -->
+            <div class="modal-icono" id="modalIcono">
+                <span id="simbolo">ℹ️</span>
+            </div>
+
+            <h2 id="modalTitulo">Título del Modal</h2>
+
+            <div class="modal-mensaje">
+                <p id="modalMensaje">Este es el mensaje que se mostrará al usuario</p>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="btn btn-primary" id="btnAceptarInfo">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/register.js"></script>
+</body>
+
+</html>
