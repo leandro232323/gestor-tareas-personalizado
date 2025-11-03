@@ -23,6 +23,28 @@ const botonesAbrir = [
 function iniciar() {
     console.log(cedulaSesionUsuario);
     eventos();
+    mostrarTareasUser();
+}
+
+
+async function mostrarTareasUser(){
+    try {
+        const peticion = await fetch("/mostrarTareas", {
+            method: "GET",
+            headers: {
+                'Content-Type' : 'application/json',
+                "cedula" : cedulaSesionUsuario
+            }
+        });
+
+        const datos = await peticion.json();
+        if(datos.estado == true){
+            console.log(datos.mensaje)
+            return
+        }
+    } catch (error) {
+        openModalInformativo("❌", "Error fatal", error.message);
+    }
 }
 
 function eventos() {

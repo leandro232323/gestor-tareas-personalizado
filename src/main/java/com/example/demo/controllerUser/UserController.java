@@ -241,7 +241,7 @@ public class UserController {
     
     
 /*
-   para todas las operaciones CRUD es con sentencia.executeUpdate();, eso devuelve el numero de filas afectadas
+   para todas las operaciones CRUD es con sentencia.executeUpdate();, eso devuelve un ENTERO el numero de filas afectadas
    solo cambia para BUSCAR, que es con executeQuery y eso se tiene que guardar en una variable de tipo Resulset
    es como una tabla virtual que contiene tods los datos de la consulta SELECT
   

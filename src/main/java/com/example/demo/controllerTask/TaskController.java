@@ -3,7 +3,6 @@ package com.example.demo.controllerTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import javax.sql.DataSource;
-
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,8 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import com.example.demo.verificar.AlgoritmosVerificar;
@@ -184,6 +187,63 @@ public class TaskController {
         return null;
     }
 
+
+
+
+    // Esta funcion ESTA INCOMPLETA, ESTA ES LA QUE SE TIENE PENSADA para mostrar
+    // las tareas de un determinado usuario
+    @GetMapping("/mostrarTareas")
+    public Map<String, Object> tasksShow(@RequestHeader("cedula") String cedula) {
+        Map<String, Object> respuesta = new HashMap<>();
+
+        Long cedualUserSesion = Long.parseLong(cedula);
+        Connection conexion = null;
+        PreparedStatement sentencia = null;
+        ResultSet resultado = null;
+
+
+        try {
+
+            conexion = dataSource.getConnection();
+            String sql = "SELECT d.nombre AS dia, t.nombre, t.materia, t.accion, t.entrega FROM usuarios u JOIN usuarios_tareas ut ON u.cedula = ut.usuario_cedula JOIN tareas t ON ut.tarea_id = t.id JOIN dias d ON t.id_dias = d.id WHERE u.cedula = 12312";
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setLong(1, cedualUserSesion);
+
+            resultado = sentencia.executeQuery();
+
+            if(!resultado.next()){
+                respuesta.put("estado", false);
+                respuesta.put("mensaje", "Error al filtrar las tareas del usuario con cedula ");
+                respuesta.put("titulo","Error fatal");
+                return respuesta;
+            }
+
+            
+        } catch (SQLException e) {
+            respuesta.put("titulo", "Error fatal");
+            respuesta.put("estado", false);
+            respuesta.put("mensaje", e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            respuesta.put("titulo", "Error inesperado");
+            respuesta.put("estado", false);
+            respuesta.put("mensaje", e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // Cerrar recursos
+            try {
+                if (sentencia != null) sentencia.close();
+                if (conexion != null) conexion.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+  
+        return respuesta;
+    }
+    
+    
 
     
 
